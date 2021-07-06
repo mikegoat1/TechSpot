@@ -1,0 +1,32 @@
+{
+  "name": "techspot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikegoat1/TechSpot.git"
+  },
+  "author": "Mikey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikegoat1/TechSpot/issues"
+  },
+  "homepage": "https://github.com/mikegoat1/TechSpot#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.9",
+    "sequelize": "^6.6.5"
+  }
+}
