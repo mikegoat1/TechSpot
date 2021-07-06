@@ -18,12 +18,46 @@
     <!--personal CSS  -->
     <link rel="stylesheet" href="/css/style.css" />
 
-    <title>Ticket Scalper</title>
+    <title>BlogSpot</title>
 
 </head>
 
 <body style="background-color: #white;">
     <!--Nav Bar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        {{#if logged_in}}
+            
+       
+        <li class="nav-item">
+          <a class="nav-link" href="#">Log In/Sign Up</a>
+        </li>
+        {{else}}
+          <li class="nav-item">
+          <a class="nav-link" href="#">log Out</a>
+        </li>
+        {{/if}}
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
     
 
     {{{ body }}}
@@ -32,7 +66,9 @@
 
     {{!-- This needs to be there to toggle which js script is being ran while on site --}}
 
-  
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
     <script src="/js/Homepage.js"></script>
 </body>
 
