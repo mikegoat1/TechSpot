@@ -23,10 +23,3 @@ const loginFormHandler = async (event) => {
 document
   .querySelector('#loginBtn')
   .addEventListener('click', loginFormHandler);
-
-// document
-//   .querySelector('#signUpBtn')
-//   .addEventListener('click', 
-//     console.log("YOOOO"),
-//     document.location.replace("/signUp")
-//   );

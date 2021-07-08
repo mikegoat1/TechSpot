@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 
         res.render("homepage", {
             posts,
-            loggedIn: req.session.loggedIN,
+            loggedIn: req.session.loggedIn,
         })
     } catch (err) {
         console.log(err);
@@ -22,21 +22,32 @@ router.get("/", async (req, res) => {
     }
 });
 
+
+// /login route 
+
+// Home get route for login 
 router.get('/login', (req, res) => {
+    // if loggedIn is true redirect to home
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
     }
 
+    //If not true go to /login 
     res.render('login');
 });
 
+
+// /signUp route 
+
+// home get route for signUp 
 router.get('/signUp', (req, res) => {
+    // if loggedIn is true redirect to home
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
     }
-
+    // if not true go to /signUp 
     res.render('signUp');
 });
 

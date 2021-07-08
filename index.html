@@ -23,7 +23,7 @@
 
 </head>
 
-<body>
+<body style="height: 100%;">
     <!--Nav Bar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -35,7 +35,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Dashboard</a>
                     </li>
-                    {{#if logged_in}}
+                    {{#if loggedIn}}
                     <li class="nav-item">
                         <a class="nav-link" href="#">Log In/Sign Up</a>
                     </li>
@@ -48,40 +48,31 @@
 
                 </ul>
             </div>
-
-            <div>
-                The BlogSpot
-            </div>
         </div>
     </nav>
 
-    <div class="container-fluid">
+    <div>
+
+
+    </div>
+
+
+    <div class="container d-flex justify-content-center align-bottom">
+
         <div class="row">
+    
+            <a class="btn btn-primary" href="#" role="button">+ Post</a>
+        </div>
+    </div>
+    
 
-            <div class="collogin-card">
-                <h2 class="page-title">Login</h2>
 
-                <form>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <a type="submit" class="btn btn-primary">Login</a>
-                    <button type="submit" class="btn btn-primary">Sign Up</button>
-                </form>
+    <script src="./js/login.js"></script>
 
-            </div>
-
-            <script src="./js/login.js"></script>
-
-            <!-- Bootstrap script -->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-                crossorigin="anonymous"></script>
+    <!-- Bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

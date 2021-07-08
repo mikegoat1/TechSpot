@@ -1,16 +1,19 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// URL route 
+// /api/user
 
 // CREATE new user
+//if fetch home post is hit
 router.post('/', async (req, res) => {
+    // get info from Fetch post in place them in email and password. 
     try {
+        console.log(req); 
         const dbUserData = await User.create({
             email: req.body.email,
             password: req.body.password,
         });
-
+        // Set req session to loggedIn and send back data with 200
         req.session.save(() => {
             req.session.loggedIn = true;
             req.session.user_id = dbUserData.id
@@ -21,9 +24,12 @@ router.post('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+// api/user/login 
 
 // Login
+// if fetch post to /login is hit
 router.post('/login', async (req, res) => {
+    // grab data and compare to database
     try {
         const dbUserData = await User.findOne({
             where: {
@@ -31,6 +37,7 @@ router.post('/login', async (req, res) => {
             },
         });
 
+        // if email is not in database 
         if (!dbUserData) {
             res
                 .status(400)
@@ -38,6 +45,7 @@ router.post('/login', async (req, res) => {
             return;
         }
 
+        // 
         const validPassword = await dbUserData.checkPassword(req.body.password);
 
         if (!validPassword) {
@@ -59,6 +67,8 @@ router.post('/login', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+// api/user/logout
 
 // Logout
 router.post('/logout', (req, res) => {

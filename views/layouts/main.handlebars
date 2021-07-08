@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
     integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
+
 
   <title>BlogSpot</title>
 
@@ -28,18 +28,18 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Dashboard</a>
+            <a class="nav-link" href="/dashboard">Dashboard</a>
           </li>
-          {{#if logged_in}}
+          {{#if loggedIn}}
           <li class="nav-item">
-            <a class="nav-link" href="#">Log In/Sign Up</a>
+            <a id="logout" class="nav-link" href="#">Log Out</a>
           </li>
           {{else}}
           <li class="nav-item">
-            <a class="nav-link" href="#">Log Out</a>
+            <a class="nav-link" href="/login">Log In/Sign Up</a>
           </li>
           {{/if}}
 
@@ -54,13 +54,17 @@
   </nav>
 
 
-  {{{ body }}}
+  <main>
+
+    {{{ body }}}
 
 
 
-  {{!-- This needs to be there to toggle which js script is being ran while on site --}}
+    {{!-- This needs to be there to toggle which js script is being ran while on site --}}
+  </main>
 
-  {{#if logged_in}}
+  
+  {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
   <script src="/js/Homepage.js"></script>
