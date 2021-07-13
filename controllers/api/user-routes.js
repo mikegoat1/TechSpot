@@ -12,6 +12,7 @@ router.post('/', async (req, res) => {
         const dbUserData = await User.create({
             email: req.body.email,
             password: req.body.password,
+            
         });
         // Set req session to loggedIn and send back data with 200
         req.session.save(() => {

@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const { Post, User } = require('../models');
-const withAuth = require('../utils/auth');
+const { Post, User, Comment } = require('../models');
 
 
 
@@ -11,9 +10,15 @@ router.get("/", async (req, res) => {
         const posts = postData.map((post) => {
             post.get({ plain: true })
         });
+//include 
+        const commentData = await Comment.findAll();
+        const comments = commentData.map((comment) => {
+            comment.get({ plain: true })
+        });
 
         res.render("homepage", {
             posts,
+            comments,
             loggedIn: req.session.loggedIn,
         })
     } catch (err) {
@@ -21,6 +26,23 @@ router.get("/", async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.get('/dashboard', async (req, res) => {
+    try {
+        const postData = await Post.findAll();
+        const posts = postData.map((post) => {
+            post.get({ plain: true })
+        });
+
+        res.render("dashboard", {
+           posts,  
+        })
+
+    }catch (err) {
+        console.log(err); 
+        res.status(500).json(err); 
+    }
+}); 
 
 
 // /login route 
@@ -50,6 +72,8 @@ router.get('/signUp', (req, res) => {
     // if not true go to /signUp 
     res.render('signUp');
 });
+
+
 
 
 
