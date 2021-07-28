@@ -7,8 +7,10 @@ router.post("/", async (req, res) => {
             title: req.body.title,
             description: req.body.content,
             date: Date.now(),
+            user_id: req.session.user_id, 
         });
-        //create req.sessions id with post
+
+
         // include other models
         
         res.status(200).json(dbPostData); 
@@ -21,4 +23,5 @@ router.post("/", async (req, res) => {
 
 
 
-module.exports = router; 
+module.exports = router;  
+

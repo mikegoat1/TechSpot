@@ -6,19 +6,14 @@ const { Post, User, Comment } = require('../models');
 //Get all the info from post when homepage is loaded. 
 router.get("/", async (req, res) => {
     try {
-        const postData = await Post.findAll();
+        const postData = await Post.findAll({
+            inlcude:[Comment], 
+        });
         const posts = postData.map((post) => {
             post.get({ plain: true })
         });
-//include 
-        const commentData = await Comment.findAll();
-        const comments = commentData.map((comment) => {
-            comment.get({ plain: true })
-        });
-
         res.render("homepage", {
             posts,
-            comments,
             loggedIn: req.session.loggedIn,
         })
     } catch (err) {
@@ -35,14 +30,14 @@ router.get('/dashboard', async (req, res) => {
         });
 
         res.render("dashboard", {
-           posts,  
+            posts,
         })
 
-    }catch (err) {
-        console.log(err); 
-        res.status(500).json(err); 
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
     }
-}); 
+});
 
 
 // /login route 
